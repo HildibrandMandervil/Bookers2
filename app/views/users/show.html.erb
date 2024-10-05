@@ -1,0 +1,39 @@
+<%= flash[:notice] %>
+
+<%= render 'userprofile', user: @user, book: @book %>
+        
+        <div class="col-md-8 offset-md-1">
+         <h2>Books</h2>
+         <table class="table table-hover table-inverse">
+            <thead> 
+             <tr>
+                <th></th>
+                <th>Title</th> 
+                <th>Opinion</th>
+                <th class="col-3"></th>
+             </tr>
+            </thead>
+         
+         <tbody>
+             <% @user.books.each do |f| %>
+          <tr>
+           <td>
+             <%= link_to user_path do %>
+             <%= image_tag @user.get_profile_image %>
+             <%end%>
+           </td>
+           <td>
+             <%= link_to book_path(f.id) do %>
+             <%= f.title %>
+             <%end%>
+            </td>
+           <td>
+              <%= f.body %>
+           </td>
+          </tr>
+         <%end%>
+         </tbody>
+         </table>
+         </div>
+</div>
+</div>
